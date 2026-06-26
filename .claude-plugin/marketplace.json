@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "parallel-lifecycle",
+  "owner": {
+    "name": "DevOtts",
+    "url": "https://github.com/DevOtts"
+  },
+  "description": "Direct-discovery marketplace for the parallel-lifecycle plugin. Add this repo to install the plugin by itself; it is also published in the wider DevOtts marketplace.",
+  "plugins": [
+    {
+      "name": "parallel-lifecycle",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Per-worktree isolated, disposable dev environments (app port, ephemeral Chrome/CDP, per-worktree database) behind a single .env.worktree contract, for running N parallel agentic coding sessions without collisions.",
+      "author": {
+        "name": "DevOtts",
+        "url": "https://github.com/DevOtts"
+      },
+      "homepage": "https://github.com/DevOtts/parallel-lifecycle",
+      "license": "MIT",
+      "keywords": [
+        "git-worktree",
+        "parallel",
+        "isolation",
+        "cdp",
+        "playwright",
+        "testing"
+      ]
+    }
+  ]
+}

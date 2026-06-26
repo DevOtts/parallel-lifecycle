@@ -1,0 +1,13 @@
+# Per-worktree generated state (never commit; per-machine, per-worktree)
+.env.worktree
+.wt/
+.claude/worktrees/
+
+# Internal context kept locally for reference, not for the public repo
+references/
+
+# fable-it run reports
+.fable-it-reports/
+
+# OS / editor noise
+.DS_Store
