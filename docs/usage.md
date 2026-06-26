@@ -13,7 +13,7 @@ If it says `NOT PROVISIONED` and you are in a worktree, run the bootstrap once b
 hand, then load the contract:
 
 ```bash
-bash hooks/worktree-bootstrap.sh        # or the installed path
+worktree-bootstrap.sh        # the bundled Layer 0 provisioner
 set -a; source .env.worktree; set +a
 ```
 
@@ -34,7 +34,7 @@ until curl -sf "http://127.0.0.1:$PORT" >/dev/null; do sleep 0.5; done
 The bundled helper reads `$CDP_URL` and connects to this worktree's Chrome:
 
 ```bash
-python3 scripts/connect.py        # smoke test: prints the app title
+python3 connect.py        # smoke test: prints the app title
 ```
 
 In your own tests:
@@ -88,7 +88,7 @@ Teardown runs automatically on `SessionEnd` and kills this worktree's ephemeral
 Chrome. By hand:
 
 ```bash
-bash hooks/worktree-teardown.sh
+worktree-teardown.sh
 git worktree remove "$(git rev-parse --show-toplevel)"   # once merged or binned
 ```
 
