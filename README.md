@@ -14,9 +14,8 @@
 <p>
   <em>The substrate parallel coding assumes exists — and never actually had.</em>
 </p>
-
 <a href="#how-it-works">
-  <img src="assets/parallel-lifecycle.gif" alt="parallel-lifecycle — N git worktrees, each with its own isolated port, Chrome and database, converging back to main" width="100%">
+  <img src="assets/parallel-lifecycle-hero.svg" alt="parallel-lifecycle — N git worktrees, each with its own isolated port, Chrome and database, converging back to main" width="100%">
 </a>
 
 <p>
@@ -58,7 +57,7 @@ You spin up three worktrees to build three features in parallel. Session A's dev
 The fix isn't more cleverness in each session. It's a floor underneath all of them that guarantees isolation *deterministically*, before any session writes a line of code. That floor is a hook, not a prompt — because a prompt is something a model can skip or forget, and "usually isolated" is the same bug as "never isolated."
 
 <a href="#how-it-works">
-  <img src="assets/parallel-lifecycle-hero.svg" alt="parallel-lifecycle — N git worktrees, each with its own isolated port, Chrome and database, converging back to main" width="100%">
+  <img src="assets/parallel-lifecycle.gif" alt="parallel-lifecycle — N git worktrees, each with its own isolated port, Chrome and database, converging back to main" width="100%">
 </a>
 
 ## Installation
