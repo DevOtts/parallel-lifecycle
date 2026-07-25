@@ -6,7 +6,8 @@
 # Internal context kept locally for reference, not for the public repo
 references/
 
-# fable-it run reports
+# build-it (legacy .fable-it-reports/ kept ignored) run reports
+.build-it-reports/
 .fable-it-reports/
 
 # OS / editor noise
