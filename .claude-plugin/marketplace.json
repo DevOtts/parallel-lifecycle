@@ -10,7 +10,7 @@
     {
       "name": "parallel-lifecycle",
       "source": "./plugins/parallel-lifecycle",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "description": "Per-worktree isolated, disposable dev environments (app port, ephemeral Chrome/CDP, per-worktree database) behind a single .env.worktree contract, for running N parallel agentic coding sessions without collisions.",
       "author": {
         "name": "DevOtts",
