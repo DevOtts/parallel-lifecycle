@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "parallel-lifecycle",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Give every git worktree its own isolated, disposable environment (app port, ephemeral Chrome/CDP, per-worktree database) behind a single .env.worktree contract, so N agentic coding sessions build features in parallel without colliding on ports, the browser, or the database.",
   "author": {
     "name": "DevOtts",

@@ -1,7 +1,7 @@
 ---
 name: parallel-lifecycle
 description: Run and CDP-test a feature inside its own git worktree without colliding with other parallel coding sessions. Use whenever you are testing a feature locally in a worktree, running Playwright/CDP against your own app, or running two or more agent sessions in parallel that each need a dev server and a browser. Trigger on "test this feature", "run the e2e", "test it in the browser", "test this worktree", "spin up the app and check it", or any local CDP/Playwright testing that is NOT driving your real, logged-in, anti-detection Chrome. Each worktree gets its own app port, ephemeral Chrome/CDP endpoint, and (planned) database behind a single .env.worktree contract.
-version: 0.2.0
+version: 1.0.0
 license: MIT
 author: DevOtts
 author_url: https://github.com/DevOtts
