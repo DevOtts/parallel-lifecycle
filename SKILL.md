@@ -1,7 +1,7 @@
 ---
 name: parallel-lifecycle
 description: Run and CDP-test a feature inside its own git worktree without colliding with other parallel coding sessions. Use whenever you are testing a feature locally in a worktree, running Playwright/CDP against your own app, or running two or more agent sessions in parallel that each need a dev server and a browser. Trigger on "test this feature", "run the e2e", "test it in the browser", "test this worktree", "spin up the app and check it", or any local CDP/Playwright testing that is NOT driving your real, logged-in, anti-detection Chrome. Each worktree gets its own app port, ephemeral Chrome/CDP endpoint, and (planned) database behind a single .env.worktree contract.
-version: 0.1.0
+version: 1.0.0
 license: MIT
 author: DevOtts
 author_url: https://github.com/DevOtts
@@ -71,6 +71,18 @@ On Claude Code, teardown is automatic on `SessionEnd`. Otherwise:
 bash worktree-teardown.sh
 git worktree remove "$(git rev-parse --show-toplevel)"   # once merged or binned
 ```
+
+## Isolation driver contract
+
+For orchestrators (such as do-it, via its `isolation` setting) the same machinery is callable as a driver with exactly three operations. `isolation.sh` ships at `plugins/parallel-lifecycle/skills/parallel-lifecycle/scripts/isolation.sh`:
+
+| Operation | Does | Prints |
+|---|---|---|
+| `create <slice> [--base <ref>]` | make an isolated checkout (branch `feat/<slice>`) and provision its runtime; idempotent | its absolute path |
+| `remove <slice> [--force]` | tear the runtime down, then remove the checkout | nothing |
+| `path <slice>` | look up the slice's checkout | its absolute path (exit 1 if none) |
+
+Checkouts live in `$PL_ISOLATION_ROOT` (default `<repo>-worktrees/`). Stdout carries only the path; progress goes to stderr. Exit codes: 0 ok, 1 failure or not found, 2 usage. do-it's default driver is plain git worktrees; this one adds the per-worktree runtime.
 
 ## Hard rules
 

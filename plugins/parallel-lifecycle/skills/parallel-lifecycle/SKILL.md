@@ -146,6 +146,18 @@ Stale ephemeral Chromes are the main resource leak here. If `ps aux | grep remot
 
 ---
 
+## Isolation driver contract
+
+For orchestrators (such as do-it, via its `isolation` setting) the same machinery is callable as a driver with exactly three operations. `isolation.sh` ships at `scripts/isolation.sh`:
+
+| Operation | Does | Prints |
+|---|---|---|
+| `create <slice> [--base <ref>]` | make an isolated checkout (branch `feat/<slice>`) and provision its runtime; idempotent | its absolute path |
+| `remove <slice> [--force]` | tear the runtime down, then remove the checkout | nothing |
+| `path <slice>` | look up the slice's checkout | its absolute path (exit 1 if none) |
+
+Checkouts live in `$PL_ISOLATION_ROOT` (default `<repo>-worktrees/`). Stdout carries only the path; progress goes to stderr. Exit codes: 0 ok, 1 failure or not found, 2 usage. do-it's default driver is plain git worktrees; this one adds the per-worktree runtime.
+
 ## 8. Hard rules
 
 - Never connect to `:9222` from this skill. That browser belongs to your supervised real-Chrome flow.
